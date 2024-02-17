@@ -1,4 +1,53 @@
 {
-    "books": [],
-    "users": []
+  "users": [
+    {
+      "email": "laljiprajapati572@gmail.com",
+      "password": "$2a$10$MuhI4VSsC2CXVpNqWNrqhu8/a4M.x6LsGDo0zibaU2e3qvI8HEaXu",
+      "name": "Lalji Prajapati",
+      "id": 1
+    },
+    {
+      "email": "pritam@gmail.com",
+      "password": "$2a$10$nA32kolfLUWeZ3l/ClPVj.CUOZA2cnm8m3Qy/NBUcIeKliJwSB3Ya",
+      "name": "Pritam",
+      "id": 2
+    },
+    {
+      "email": "limbu@gmail.com",
+      "password": "$2a$10$1rPtYh1LVm8kajJBXfa5l.z/WU..Wz9od6mirnM4l1/zAWOeRKrp2",
+      "name": "Limbu",
+      "id": 3
+    }
+  ],
+  "books": [
+    {
+      "0": "laljiprajapati572@gmail.com",
+      "name": "Vladamir Putin Biography",
+      "collaborators": [],
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "name": "Life goes on",
+      "collaborators": [
+        "pritam@gmail.com"
+      ],
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "name": "Restart by Anurag",
+      "collaborators": [
+        "laljiprajapati572@gmail.com"
+      ],
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "name": "LOC ",
+      "collaborators": [],
+      "userId": 1,
+      "id": 4
+    }
+  ]
 }
