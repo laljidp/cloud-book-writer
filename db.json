@@ -21,11 +21,68 @@
   ],
   "books": [
     {
-      "0": "laljiprajapati572@gmail.com",
       "name": "Vladamir Putin Biography",
       "collaborators": [],
       "userId": 1,
-      "sections": [],
+      "sections": [{
+        "id": "45",
+        "name": "Introduction",
+        "pageNo": 1,
+        "sections": [
+          {
+            "id": "32",
+            "name": "Introduction To mechanism",
+            "pageNo": 15,
+            "sections":[
+              {
+                "id": "55",
+                "name": "Mechanics (Automobile)",
+                "pageNo": 56,
+                "sections": []
+              },
+              {
+                "id": "55",
+                "name": "Mechanics (Electrical)",
+                "pageNo": 58,
+                "sections": []
+              }
+            ]
+          },
+          {
+            "id": "33",
+            "name": "Introduction To Models",
+            "pageNo": 18
+          },
+          {
+            "id": "34",
+            "name": "Introduction To Diagrams",
+            "pageNo": 20
+          }
+      ]
+      }, 
+      {
+        "id": "55",
+        "name": "MML diagrams",
+        "pageNo": 25,
+        "sections": [
+          {
+            "id": "32",
+            "name": "Introduction To mechanism",
+            "pageNo": 15
+          },
+          {
+            "id": "33",
+            "name": "Introduction To Models",
+            "pageNo": 18
+          },
+          {
+            "id": "34",
+            "name": "Introduction To Diagrams",
+            "pageNo": 20
+          }
+      ]
+      }
+    ],
       "id": 1
     },
     {

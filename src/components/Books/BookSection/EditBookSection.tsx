@@ -2,7 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import { fetchBookByID } from "../../../services/book.service";
 import useSWR from "swr";
 import { useParams } from "react-router-dom";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useMemo } from "react";
 import { UserContext } from "../../../context/UserContext";
 import AddSection from "./AddSection";
 import SectionLists from "./SectionLists";
@@ -10,7 +10,7 @@ import SectionLists from "./SectionLists";
 export default function EditBookSection() {
   const { id } = useParams();
   const { user } = useContext(UserContext);
-  const { data: book } = useSWR({ id: id }, fetchBookByID, {
+  const { data: book, isLoading } = useSWR({ id: id }, fetchBookByID, {
     fallbackData: null,
   });
 
@@ -29,6 +29,18 @@ export default function EditBookSection() {
     return false;
   }, [book, user]);
 
+  if (isLoading) {
+    return (
+      <Box display={"flex"} justifyContent={"center"}>
+        Loading..
+      </Box>
+    );
+  }
+
+  if (!book) {
+    return <Box>You're not authorized to access this page.</Box>;
+  }
+
   return (
     <Box display={"flex"} justifyContent={"center"} width={"100%"}>
       <Box
@@ -46,7 +58,7 @@ export default function EditBookSection() {
               {am_I_Owner ? "Owner" : "Collaborator"})
             </Text>
           </Text>
-          <Text>Collaborators: {book?.collaborators.length}</Text>
+          <Text>Collaborators: {book?.collaborators?.length || 0}</Text>
         </Box>
         <Box
           textAlign={"center"}
@@ -59,9 +71,13 @@ export default function EditBookSection() {
         </Box>
         <Box>
           <SectionLists
+            path=""
             bookId={book?.id || ""}
             sections={book?.sections || []}
           />
+          <Box marginTop={3}>
+            <AddSection path={""} bookId={book.id} />
+          </Box>
         </Box>
       </Box>
     </Box>
