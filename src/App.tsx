@@ -11,7 +11,7 @@ import Login from "./components/Login";
 import Books from "./components/Books";
 import SignUp from "./components/Signup";
 import PrivateLayout from "./components/PrivateLayout";
-import EditBookSection from "./components/Books/EditBookSection";
+import EditBookSection from "./components/Books/BookSection/EditBookSection";
 
 const publicRoutes = () => {
   return [
