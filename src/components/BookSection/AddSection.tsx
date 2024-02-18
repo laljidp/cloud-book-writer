@@ -1,4 +1,4 @@
-import { Box, Button, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import { SectionPayloadT } from "../../types/book.type";
 
@@ -12,8 +12,20 @@ export default function AddSection(props: AddSectionProps) {
   const [isAddMode, setAddMode] = useState(false);
   const [name, setName] = useState("");
   const [page, setPage] = useState<number | string>("");
+  const toast = useToast();
 
   const handleSaveSection = () => {
+    if (!name.trim() || !page) {
+      toast({
+        status: "error",
+        title: "Please enter section name & page no.",
+        isClosable: true,
+        duration: 3000,
+        position: "top",
+        id: "invalid_input",
+      });
+      return;
+    }
     handleAddSection(path, { name, pageNo: Number(page) });
     resetState();
   };
