@@ -69,7 +69,7 @@ export default function Books() {
             color={"white"}
             fontWeight={600}
             width={"100%"}
-            p={".5rem 1rem"}
+            p={".6rem 1rem"}
           >
             My Books
           </Box>

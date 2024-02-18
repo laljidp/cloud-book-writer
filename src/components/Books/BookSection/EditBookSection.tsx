@@ -1,25 +1,27 @@
-import { Box, Text } from "@chakra-ui/react";
+import useSWR from "swr";
+import AddSection from "./AddSection";
+import SectionLists from "./SectionLists";
+import _get from "lodash/get";
+import _set from "lodash/set";
+import { Box, Button, Text } from "@chakra-ui/react";
 import {
   fetchBookByID,
   upsertBookSections,
 } from "../../../services/book.service";
-import useSWR from "swr";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useMemo } from "react";
 import { UserContext } from "../../../context/UserContext";
-import AddSection from "./AddSection";
-import SectionLists from "./SectionLists";
 import {
   appendStringPathToNested,
   generateUID,
 } from "../../../utils/helperFunction";
 import { BookSectionT, BookT, SectionPayloadT } from "../../../types/book.type";
-import _get from "lodash/get";
-import _set from "lodash/set";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
 export default function EditBookSection() {
   const { id } = useParams();
   const { user } = useContext(UserContext);
+  const navigate = useNavigate();
   const {
     data: book,
     isLoading,
@@ -28,6 +30,20 @@ export default function EditBookSection() {
     fallbackData: null,
     revalidateOnFocus: false,
   });
+
+  const onEditSection = async (path: string, payload: SectionPayloadT) => {
+    console.log({ payload });
+    const __section = book?.sections?.slice() || [];
+    let subsection = _get(__section, path) as BookSectionT;
+    subsection.name = payload.name;
+    subsection.pageNo = payload.pageNo;
+    // Update nested object
+    _set(_sections, path, subsection);
+    const updatedBook = { ...(book || {}), sections: _sections } as BookT;
+    // save into json server
+    await upsertBookSections(updatedBook.id, updatedBook.sections);
+    mutate();
+  };
 
   const handleAddSection = async (path: string, section: SectionPayloadT) => {
     const __section = book?.sections?.slice() || [];
@@ -46,6 +62,7 @@ export default function EditBookSection() {
       mutate();
       return;
     }
+    // FOR NESTED SECTIONS (COULD BE ANY NESTED)
     const subsection = _get(__section, path) as BookSectionT;
     const sectionItem = {
       id: generateUID(),
@@ -55,11 +72,8 @@ export default function EditBookSection() {
       path: "",
     } as BookSectionT;
     subsection?.sections?.push(sectionItem);
-
-    console.log("subSection", subsection);
     _set(_sections, path, subsection);
     const updatedBook = { ...(book || {}), sections: _sections } as BookT;
-    console.log({ updatedBook });
     await upsertBookSections(updatedBook.id, updatedBook.sections);
     mutate();
   };
@@ -71,6 +85,7 @@ export default function EditBookSection() {
     return false;
   }, [book, user]);
 
+  // appended string paths to N nested objects
   const _sections = useMemo(() => {
     if (book?.sections?.length) {
       return appendStringPathToNested(book.sections);
@@ -108,15 +123,26 @@ export default function EditBookSection() {
         padding={5}
         width={["100%", "90%", "80%", "60%"]}
       >
-        <Box display={"flex"} justifyContent={"space-between"}>
+        <Box
+          display={"flex"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
           <Text display={"flex"} alignItems={"center"}>
-            Book name:&nbsp;&nbsp;
+            Book name:&nbsp;
             <Text fontWeight={600}>
               {book?.name || "--"} (You're{" "}
               {am_I_Owner ? "Owner" : "Collaborator"})
             </Text>
           </Text>
           <Text>Collaborators: {book?.collaborators?.length || 0}</Text>
+          <Button
+            size={"sm"}
+            onClick={() => navigate("/books")}
+            leftIcon={<ArrowBackIcon />}
+          >
+            Go back
+          </Button>
         </Box>
         <Box
           textAlign={"center"}
@@ -131,6 +157,7 @@ export default function EditBookSection() {
           <SectionLists
             bookId={book?.id || ""}
             owner={am_I_Owner}
+            onEditSection={onEditSection}
             sections={_sections || []}
             handleAddSection={handleAddSection}
           />

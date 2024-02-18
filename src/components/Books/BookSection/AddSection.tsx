@@ -15,6 +15,10 @@ export default function AddSection(props: AddSectionProps) {
 
   const handleSaveSection = () => {
     handleAddSection(path, { name, pageNo: Number(page) });
+    resetState();
+  };
+
+  const resetState = () => {
     setAddMode(false);
     setName("");
     setPage("");
@@ -43,8 +47,11 @@ export default function AddSection(props: AddSectionProps) {
             type="number"
             borderRadius={5}
           />
-          <Button onClick={handleSaveSection} colorScheme="teal" size={"sm"}>
+          <Button size="sm" onClick={handleSaveSection} colorScheme="teal">
             Save
+          </Button>
+          <Button onClick={resetState} size={"sm"}>
+            Cancel
           </Button>
         </Box>
       ) : (
