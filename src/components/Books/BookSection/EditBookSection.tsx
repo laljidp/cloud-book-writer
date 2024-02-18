@@ -30,8 +30,7 @@ export default function EditBookSection() {
   });
 
   const handleAddSection = async (path: string, section: SectionPayloadT) => {
-    debugger;
-    const __section = book?.sections.slice();
+    const __section = book?.sections?.slice() || [];
     if (!path.trim()) {
       // it means it's a root section
       const sectionItem = {
@@ -43,9 +42,8 @@ export default function EditBookSection() {
       } as BookSectionT;
       __section?.push(sectionItem);
       const updatedBook = { ...(book || {}), sections: __section } as BookT;
-      mutate(updatedBook, {
-        revalidate: false,
-      });
+      await upsertBookSections(updatedBook.id, updatedBook.sections);
+      mutate();
       return;
     }
     const subsection = _get(__section, path) as BookSectionT;
@@ -62,13 +60,9 @@ export default function EditBookSection() {
     _set(_sections, path, subsection);
     const updatedBook = { ...(book || {}), sections: _sections } as BookT;
     console.log({ updatedBook });
-    mutate(updatedBook, {
-      revalidate: false,
-    });
     await upsertBookSections(updatedBook.id, updatedBook.sections);
+    mutate();
   };
-
-  console.log({ book });
 
   const am_I_Owner = useMemo(() => {
     if (book?.userId === user?.id) {
@@ -83,8 +77,6 @@ export default function EditBookSection() {
     }
     return [];
   }, [book?.sections]);
-
-  console.log({ _sections });
 
   if (isLoading) {
     return (
@@ -138,15 +130,15 @@ export default function EditBookSection() {
         <Box>
           <SectionLists
             bookId={book?.id || ""}
+            owner={am_I_Owner}
             sections={_sections || []}
             handleAddSection={handleAddSection}
           />
+          {!_sections.length && <Box as="small">No section found.</Box>}
           <Box marginTop={3}>
-            <AddSection
-              path={""}
-              bookId={book.id}
-              handleAddSection={handleAddSection}
-            />
+            {am_I_Owner && (
+              <AddSection path={""} handleAddSection={handleAddSection} />
+            )}
           </Box>
         </Box>
       </Box>

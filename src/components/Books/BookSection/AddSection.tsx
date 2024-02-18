@@ -3,20 +3,17 @@ import { useState } from "react";
 import { SectionPayloadT } from "../../../types/book.type";
 
 interface AddSectionProps {
-  bookId: string;
   path: string;
   handleAddSection?: (path: string, section: SectionPayloadT) => void;
 }
 
 export default function AddSection(props: AddSectionProps) {
-  const { bookId, path, handleAddSection = () => {} } = props;
+  const { path, handleAddSection = () => {} } = props;
   const [isAddMode, setAddMode] = useState(false);
   const [name, setName] = useState("");
   const [page, setPage] = useState<number | string>("");
 
   const handleSaveSection = () => {
-    console.log(path);
-    console.log(bookId);
     handleAddSection(path, { name, pageNo: Number(page) });
     setAddMode(false);
     setName("");
@@ -44,6 +41,7 @@ export default function AddSection(props: AddSectionProps) {
             onChange={({ target }) => setPage(target.value)}
             placeholder="Enter page no."
             type="number"
+            borderRadius={5}
           />
           <Button onClick={handleSaveSection} colorScheme="teal" size={"sm"}>
             Save

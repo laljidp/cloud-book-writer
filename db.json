@@ -44,11 +44,62 @@
                       "id": "b5ddc5f6-80ba-44fa-8de9-05c45ebc5c8a",
                       "name": "E",
                       "pageNo": 20,
-                      "sections": [],
+                      "sections": [
+                        {
+                          "id": "f6b6af0f-d666-4790-9b9c-ec1a4c818b8d",
+                          "name": "LOK",
+                          "pageNo": 78,
+                          "sections": [
+                            {
+                              "id": "18acfa99-41e4-40df-9438-6aff63c0068a",
+                              "name": "OMAN",
+                              "pageNo": 85,
+                              "sections": [],
+                              "path": ""
+                            }
+                          ],
+                          "path": ""
+                        },
+                        {
+                          "id": "70fac731-14dd-4c2a-870b-9f186c2c0d42",
+                          "name": "LOP",
+                          "pageNo": 85,
+                          "sections": [],
+                          "path": ""
+                        },
+                        {
+                          "id": "5885e9f9-c938-41a2-820a-519d002fb259",
+                          "name": "DOP",
+                          "pageNo": 985,
+                          "sections": [],
+                          "path": ""
+                        },
+                        {
+                          "id": "ec5ac785-e68e-4aaf-ba40-7d158b40f7c8",
+                          "name": "MOQ",
+                          "pageNo": 45,
+                          "sections": [],
+                          "path": ""
+                        }
+                      ],
                       "path": "[0].sections[0].sections[0].sections[0]"
+                    },
+                    {
+                      "id": "9b0a5967-b6ce-4ecc-854c-ee7307266ac6",
+                      "name": "FOP",
+                      "pageNo": 98,
+                      "sections": [],
+                      "path": "[0].sections[0].sections[0].sections[1]"
                     }
                   ],
                   "path": "[0].sections[0].sections[0]"
+                },
+                {
+                  "id": "116a8e8f-6df5-4a0b-9f5e-113cbbf1677c",
+                  "name": "OP",
+                  "pageNo": 35,
+                  "sections": [],
+                  "path": "[0].sections[0].sections[1]"
                 }
               ],
               "path": "[0].sections[0]"
@@ -62,11 +113,61 @@
                   "id": "c0eff19b-1414-4bc8-8aa0-806f816027e1",
                   "name": "Y",
                   "pageNo": 35,
+                  "sections": [
+                    {
+                      "id": "654f7160-b217-44f7-be2d-c088dab4331b",
+                      "name": "XDF",
+                      "pageNo": 65,
+                      "sections": [],
+                      "path": "[0].sections[1].sections[0].sections[0]"
+                    },
+                    {
+                      "id": "f0d3e779-ef27-4e3c-9e53-4324d0a7ec3d",
+                      "name": "Lokomotive",
+                      "pageNo": 98,
+                      "sections": [],
+                      "path": "[0].sections[1].sections[0].sections[1]"
+                    },
+                    {
+                      "id": "b9bfff54-8d5d-44c6-a7dd-b85d2789a91b",
+                      "name": "Simbba",
+                      "pageNo": 98,
+                      "sections": [],
+                      "path": "[0].sections[1].sections[0].sections[2]"
+                    },
+                    {
+                      "id": "9ad5c488-8a8d-47bb-8dc3-b32a29e23a57",
+                      "name": "Lotion motion",
+                      "pageNo": 987,
+                      "sections": [],
+                      "path": "[0].sections[1].sections[0].sections[3]"
+                    },
+                    {
+                      "id": "a33d602b-8465-4010-a20e-4f4399c642d1",
+                      "name": "Jaiswal",
+                      "pageNo": 98,
+                      "sections": [],
+                      "path": "[0].sections[1].sections[0].sections[4]"
+                    }
+                  ],
+                  "path": "[0].sections[1].sections[0]"
+                },
+                {
+                  "id": "9a875283-cd3f-434c-8522-ff6d89385da0",
+                  "name": "Automotive company",
+                  "pageNo": 58,
                   "sections": [],
-                  "path": ""
+                  "path": "[0].sections[1].sections[1]"
+                },
+                {
+                  "id": "c0f045cd-283f-4380-8a98-c7174c8ba384",
+                  "name": "Ojas won",
+                  "pageNo": 45,
+                  "sections": [],
+                  "path": "[0].sections[1].sections[2]"
                 }
               ],
-              "path": ""
+              "path": "[0].sections[1]"
             }
           ],
           "path": "[0]"
@@ -75,7 +176,30 @@
           "id": "1eaf179c-8df3-4403-b2bc-d867df793d7b",
           "name": "B",
           "pageNo": 5,
-          "sections": [],
+          "sections": [
+            {
+              "id": "efd9e174-25e6-487b-9fc5-5454153f10b2",
+              "name": "DFG",
+              "pageNo": 65,
+              "sections": [],
+              "path": "[1].sections[0]"
+            },
+            {
+              "id": "401ba33e-9578-4aed-a9fa-c4eccae1c12b",
+              "name": "CFG",
+              "pageNo": 65,
+              "sections": [
+                {
+                  "id": "fe04ed5e-ca82-44d8-9084-dd5d8a548b63",
+                  "name": "LOP",
+                  "pageNo": 85,
+                  "sections": [],
+                  "path": "[1].sections[1].sections[0]"
+                }
+              ],
+              "path": "[1].sections[1]"
+            }
+          ],
           "path": "[1]"
         }
       ],
@@ -87,7 +211,74 @@
         "pritam@gmail.com"
       ],
       "userId": 1,
-      "id": 2
+      "id": 2,
+      "sections": [
+        {
+          "id": "6b857f10-b05d-4e3f-96a6-d8831563b3b6",
+          "name": "Introduction to Computer",
+          "pageNo": 1,
+          "sections": [
+            {
+              "id": "2f4aa251-8986-4158-bfb8-62697689cbb2",
+              "name": "Introduction to CPU",
+              "pageNo": 2,
+              "sections": [],
+              "path": "[0].sections[0]"
+            },
+            {
+              "id": "9fb3b5b1-1d70-4f8a-bb91-096575da9cfd",
+              "name": "Introduction to Monitor",
+              "pageNo": 8,
+              "sections": [],
+              "path": "[0].sections[1]"
+            },
+            {
+              "id": "4a523d92-93b2-44c8-b231-26c9984603de",
+              "name": "Introduction to Joy sticks",
+              "pageNo": 10,
+              "sections": [],
+              "path": "[0].sections[2]"
+            }
+          ],
+          "path": "[0]"
+        },
+        {
+          "id": "b53b7705-c62e-4f5f-b4fb-6970a73eed72",
+          "name": "Hisory of computers",
+          "pageNo": 15,
+          "sections": [],
+          "path": "[1]"
+        },
+        {
+          "id": "ba744ce8-c982-4ab1-ae35-664a93126022",
+          "name": "Types of computers",
+          "pageNo": 25,
+          "sections": [],
+          "path": "[2]"
+        },
+        {
+          "id": "4759a15e-4ae1-451f-b27e-9e45dbd31359",
+          "name": "Printers",
+          "pageNo": 35,
+          "sections": [],
+          "path": "[3]"
+        },
+        {
+          "id": "2f6332da-04b0-4842-be1e-94f63e7abe34",
+          "name": "Smart cards",
+          "pageNo": 45,
+          "sections": [
+            {
+              "id": "8f2101cc-5104-49c1-92e1-e95e93c9477f",
+              "name": "Types of smart cards",
+              "pageNo": 48,
+              "sections": [],
+              "path": ""
+            }
+          ],
+          "path": ""
+        }
+      ]
     },
     {
       "name": "Restart by Anurag",
