@@ -1,13 +1,15 @@
 import { Box, Button, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { SectionPayloadT } from "../../../types/book.type";
 
 interface AddSectionProps {
   bookId: string;
   path: string;
+  handleAddSection?: (path: string, section: SectionPayloadT) => void;
 }
 
 export default function AddSection(props: AddSectionProps) {
-  const { bookId, path } = props;
+  const { bookId, path, handleAddSection = () => {} } = props;
   const [isAddMode, setAddMode] = useState(false);
   const [name, setName] = useState("");
   const [page, setPage] = useState<number | string>("");
@@ -15,6 +17,10 @@ export default function AddSection(props: AddSectionProps) {
   const handleSaveSection = () => {
     console.log(path);
     console.log(bookId);
+    handleAddSection(path, { name, pageNo: Number(page) });
+    setAddMode(false);
+    setName("");
+    setPage("");
   };
 
   return (

@@ -24,65 +24,61 @@
       "name": "Vladamir Putin Biography",
       "collaborators": [],
       "userId": 1,
-      "sections": [{
-        "id": "45",
-        "name": "Introduction",
-        "pageNo": 1,
-        "sections": [
-          {
-            "id": "32",
-            "name": "Introduction To mechanism",
-            "pageNo": 15,
-            "sections":[
-              {
-                "id": "55",
-                "name": "Mechanics (Automobile)",
-                "pageNo": 56,
-                "sections": []
-              },
-              {
-                "id": "55",
-                "name": "Mechanics (Electrical)",
-                "pageNo": 58,
-                "sections": []
-              }
-            ]
-          },
-          {
-            "id": "33",
-            "name": "Introduction To Models",
-            "pageNo": 18
-          },
-          {
-            "id": "34",
-            "name": "Introduction To Diagrams",
-            "pageNo": 20
-          }
-      ]
-      }, 
-      {
-        "id": "55",
-        "name": "MML diagrams",
-        "pageNo": 25,
-        "sections": [
-          {
-            "id": "32",
-            "name": "Introduction To mechanism",
-            "pageNo": 15
-          },
-          {
-            "id": "33",
-            "name": "Introduction To Models",
-            "pageNo": 18
-          },
-          {
-            "id": "34",
-            "name": "Introduction To Diagrams",
-            "pageNo": 20
-          }
-      ]
-      }
-    ],
+      "sections": [
+        {
+          "id": "a0631d26-0113-423b-85a3-cfe0d3965755",
+          "name": "A",
+          "pageNo": 1,
+          "sections": [
+            {
+              "id": "2cec1964-c4f6-4168-967f-c1001202ab9b",
+              "name": "C",
+              "pageNo": 15,
+              "sections": [
+                {
+                  "id": "924306a4-13c4-4a09-a379-6aa2cec12c07",
+                  "name": "D",
+                  "pageNo": 18,
+                  "sections": [
+                    {
+                      "id": "b5ddc5f6-80ba-44fa-8de9-05c45ebc5c8a",
+                      "name": "E",
+                      "pageNo": 20,
+                      "sections": [],
+                      "path": "[0].sections[0].sections[0].sections[0]"
+                    }
+                  ],
+                  "path": "[0].sections[0].sections[0]"
+                }
+              ],
+              "path": "[0].sections[0]"
+            },
+            {
+              "id": "0bfa3ff6-2fa1-438b-a2f9-f155856bb0c2",
+              "name": "X",
+              "pageNo": 25,
+              "sections": [
+                {
+                  "id": "c0eff19b-1414-4bc8-8aa0-806f816027e1",
+                  "name": "Y",
+                  "pageNo": 35,
+                  "sections": [],
+                  "path": ""
+                }
+              ],
+              "path": ""
+            }
+          ],
+          "path": "[0]"
+        },
+        {
+          "id": "1eaf179c-8df3-4403-b2bc-d867df793d7b",
+          "name": "B",
+          "pageNo": 5,
+          "sections": [],
+          "path": "[1]"
+        }
+      ],
       "id": 1
     },
     {

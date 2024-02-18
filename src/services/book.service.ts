@@ -1,6 +1,6 @@
 import { Fetcher } from "swr";
 import { BASE_URL } from "../constants";
-import { BookPayloadT, BookT } from "../types/book.type";
+import { BookPayloadT, BookSectionT, BookT } from "../types/book.type";
 
 export const addNewBook = async (book: BookPayloadT) => {
   try {
@@ -63,6 +63,26 @@ export const fetchBookByID: Fetcher<BookT | null, { id: string }> = async ({
   try {
     const resp = await fetch(`${BASE_URL}/books/${id}`, {
       method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await resp.json();
+    return data || null;
+  } catch (err) {
+    console.log("ERROR updating books::", err);
+    return null;
+  }
+};
+
+export const upsertBookSections = async (
+  bookId: string,
+  sections: BookSectionT[]
+) => {
+  try {
+    const resp = await fetch(`${BASE_URL}/books/${bookId}`, {
+      method: "PATCH",
+      body: JSON.stringify({ sections: sections }),
       headers: {
         "Content-Type": "application/json",
       },

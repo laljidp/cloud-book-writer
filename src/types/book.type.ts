@@ -16,5 +16,11 @@ export type BookSectionT = {
   id: string;
   name: string;
   pageNo: number;
+  path: string;
   sections: BookSectionT[];
+};
+
+export type SectionPayloadT = {
+  name: string;
+  pageNo: number;
 };
