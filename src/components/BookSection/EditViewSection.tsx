@@ -1,5 +1,5 @@
 import { Box, Button, Input, Text } from "@chakra-ui/react";
-import { BookSectionT, SectionPayloadT } from "../../../types/book.type";
+import { BookSectionT, SectionPayloadT } from "../../types/book.type";
 import { useState } from "react";
 import { EditIcon } from "@chakra-ui/icons";
 
@@ -37,8 +37,6 @@ export default function EditViewSection(props: EditViewSectionProps) {
     });
     setEditMode(false);
   };
-
-  // console.log("path", section.path);
 
   return (
     <Box

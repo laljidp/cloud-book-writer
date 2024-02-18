@@ -3,7 +3,7 @@ import { BookSectionT } from "../types/book.type";
 
 export const generateUID = () => uuidv4();
 
-export const appendStringPathToNested = (
+export const appendStringPathToNestedObj = (
   sections: BookSectionT[],
   parentPath = ""
 ) => {
@@ -11,7 +11,7 @@ export const appendStringPathToNested = (
     let path = parentPath + `[${index}]`;
     let __section = { ...section, path };
     if (__section?.sections?.length) {
-      let subSection = appendStringPathToNested(
+      let subSection = appendStringPathToNestedObj(
         __section.sections,
         path + ".sections"
       );

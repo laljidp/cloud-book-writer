@@ -26,7 +26,6 @@ export default function Login() {
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
-    console.log({ payload });
     const { success, data } = await loginUser(payload);
     if (!success) {
       toast({

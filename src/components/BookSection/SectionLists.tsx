@@ -2,7 +2,7 @@ import AddSection from "./AddSection";
 import React from "react";
 import EditViewSection from "./EditViewSection";
 import { Box } from "@chakra-ui/react";
-import { BookSectionT, SectionPayloadT } from "../../../types/book.type";
+import { BookSectionT, SectionPayloadT } from "../../types/book.type";
 
 interface SectionListsProps {
   sections: BookSectionT[];

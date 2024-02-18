@@ -4,18 +4,15 @@ import SectionLists from "./SectionLists";
 import _get from "lodash/get";
 import _set from "lodash/set";
 import { Box, Button, Text } from "@chakra-ui/react";
-import {
-  fetchBookByID,
-  upsertBookSections,
-} from "../../../services/book.service";
+import { fetchBookByID, upsertBookSections } from "../../services/book.service";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useMemo } from "react";
-import { UserContext } from "../../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 import {
-  appendStringPathToNested,
+  appendStringPathToNestedObj,
   generateUID,
-} from "../../../utils/helperFunction";
-import { BookSectionT, BookT, SectionPayloadT } from "../../../types/book.type";
+} from "../../utils/helperFunction";
+import { BookSectionT, BookT, SectionPayloadT } from "../../types/book.type";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
 export default function EditBookSection() {
@@ -32,7 +29,6 @@ export default function EditBookSection() {
   });
 
   const onEditSection = async (path: string, payload: SectionPayloadT) => {
-    console.log({ payload });
     const __section = book?.sections?.slice() || [];
     let subsection = _get(__section, path) as BookSectionT;
     subsection.name = payload.name;
@@ -88,7 +84,7 @@ export default function EditBookSection() {
   // appended string paths to N nested objects
   const _sections = useMemo(() => {
     if (book?.sections?.length) {
-      return appendStringPathToNested(book.sections);
+      return appendStringPathToNestedObj(book.sections);
     }
     return [];
   }, [book?.sections]);

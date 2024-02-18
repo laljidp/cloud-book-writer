@@ -58,8 +58,6 @@ export default function AddEditBookModal(props: IAddEditBookModalProps) {
     });
   };
 
-  console.log("payload", payload);
-
   const handleSaveBook = async () => {
     // TODO: save a book
     if (payload.name?.trim().length < 2) {

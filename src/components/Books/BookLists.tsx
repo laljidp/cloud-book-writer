@@ -22,6 +22,7 @@ export default function BookLists(props: BookListsProps) {
     <Box>
       {books.map((book) => (
         <Box
+          key={book.id}
           padding={".5rem 1rem"}
           border={"1px solid lightgray"}
           marginBottom={2}

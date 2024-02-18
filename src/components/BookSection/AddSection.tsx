@@ -1,6 +1,6 @@
 import { Box, Button, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { SectionPayloadT } from "../../../types/book.type";
+import { SectionPayloadT } from "../../types/book.type";
 
 interface AddSectionProps {
   path: string;
