@@ -1,4 +1,4 @@
-import { Box, Button, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Text, useToast } from "@chakra-ui/react";
 import { BookSectionT, SectionPayloadT } from "../../types/book.type";
 import { useState } from "react";
 import { EditIcon } from "@chakra-ui/icons";
@@ -16,6 +16,8 @@ export default function EditViewSection(props: EditViewSectionProps) {
     pageNo: section.pageNo,
   });
 
+  const toast = useToast();
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setPayload({
@@ -26,6 +28,17 @@ export default function EditViewSection(props: EditViewSectionProps) {
 
   const handleEditSection = () => {
     // TODO: call function to update a state
+    if (!payload.name?.trim() || !payload.pageNo) {
+      toast({
+        status: "error",
+        title: "Please enter section name & page no.",
+        isClosable: true,
+        duration: 3000,
+        position: "top",
+        id: "invalid_input",
+      });
+      return;
+    }
     onEditSection(section.path, payload);
     resetState();
   };
