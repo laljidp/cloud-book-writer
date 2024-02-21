@@ -35,7 +35,6 @@ export const loginUser = async (payload: {
     if (!data.accessToken) {
       return { success: false, data: null };
     }
-    console.log("Login data::", data);
     return { success: true, data };
   } catch (err) {
     console.log("ERROR logging user::", err);

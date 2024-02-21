@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+UI Library used: [Chakra UI](https://chakra-ui.com/getting-started).
+
 ## Available Scripts
 
 We need to start the json server first as the project is using the JSON server API endpoints:
